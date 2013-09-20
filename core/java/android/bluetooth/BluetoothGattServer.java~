@@ -512,8 +512,14 @@ public final class BluetoothGattServer implements BluetoothProfile {
         BluetoothGattService service = characteristic.getService();
         if (service == null) return false;
 
+<<<<<<< HEAD
+        if (characteristic.getValue() == null) {
+            throw new IllegalArgumentException("Chracteristic value is empty. Use "
+                    + "BluetoothGattCharacteristic#setvalue to update");
+=======
         if (characteristic == null || characteristic.getValue() == null) {
             return false;
+>>>>>>> 332c0f6... Bluetooth: Validate input parameters of gatt characteristics
         }
 
         try {
