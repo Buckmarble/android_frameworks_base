@@ -374,6 +374,7 @@ public final class Sensor {
     public static final int TYPE_GEOMAGNETIC_ROTATION_VECTOR = 20;
 
     /**
+<<<<<<< HEAD
      * A constant string describing a geo-magnetic rotation vector.
      *
      * @see #TYPE_GEOMAGNETIC_ROTATION_VECTOR
@@ -501,7 +502,7 @@ public final class Sensor {
      * @see #TYPE_PICK_UP_GESTURE
      */
     public static final String STRING_TYPE_PICK_UP_GESTURE = "android.sensor.pick_up_gesture";
-    /**
+=======
      * A constant describing the motion accelerometer sensor.
      * <p>
      * This sensor is similar to the accelerometer sensor, however it only
@@ -514,6 +515,7 @@ public final class Sensor {
      * {@hide}
      */
     public static final int TYPE_MOTION_ACCEL = 33171011;
+>>>>>>> 6cc0a41... Sensor: Enable the motion accelerometer for screen orientation change
 
     /**
      * A constant describing all sensor types.
