@@ -95,10 +95,12 @@ LOCAL_SRC_FILES += \
 	core/java/android/app/backup/IRestoreSession.aidl \
 	core/java/android/app/usage/IUsageStatsManager.aidl \
 	core/java/android/bluetooth/IBluetooth.aidl \
+	core/java/android/bluetooth/IQBluetooth.aidl \
 	core/java/android/bluetooth/IBluetoothA2dp.aidl \
 	core/java/android/bluetooth/IBluetoothA2dpSink.aidl \
 	core/java/android/bluetooth/IBluetoothAvrcpController.aidl \
 	core/java/android/bluetooth/IBluetoothCallback.aidl \
+	core/java/android/bluetooth/IQBluetoothAdapterCallback.aidl \
 	core/java/android/bluetooth/IBluetoothHeadset.aidl \
 	core/java/android/bluetooth/IBluetoothHeadsetPhone.aidl \
 	core/java/android/bluetooth/IBluetoothHealth.aidl \
@@ -107,6 +109,7 @@ LOCAL_SRC_FILES += \
 	core/java/android/bluetooth/IBluetoothPan.aidl \
 	core/java/android/bluetooth/IBluetoothManager.aidl \
 	core/java/android/bluetooth/IBluetoothManagerCallback.aidl \
+	core/java/android/bluetooth/IQBluetoothManagerCallback.aidl \
 	core/java/android/bluetooth/IBluetoothPbap.aidl \
 	core/java/android/bluetooth/IBluetoothMap.aidl \
 	core/java/android/bluetooth/IBluetoothStateChangeCallback.aidl \
@@ -581,6 +584,32 @@ aidl_files := \
 	frameworks/base/core/java/android/bluetooth/le/ScanResult.aidl \
 	frameworks/base/core/java/android/bluetooth/BluetoothDevice.aidl \
 	frameworks/base/core/java/android/database/CursorWindow.aidl
+	frameworks/base/core/java/com/android/internal/textservice/ISpellCheckerService.aidl \
+	frameworks/base/core/java/com/android/internal/textservice/ISpellCheckerSession.aidl \
+	frameworks/base/core/java/com/android/internal/textservice/ISpellCheckerSessionListener.aidl \
+	frameworks/base/core/java/com/android/internal/textservice/ITextServicesManager.aidl \
+	frameworks/base/core/java/com/android/internal/textservice/ITextServicesSessionListener.aidl \
+	frameworks/base/core/java/com/android/internal/view/IInputContext.aidl \
+	frameworks/base/core/java/com/android/internal/view/IInputMethod.aidl \
+	frameworks/base/core/java/com/android/internal/view/IInputMethodClient.aidl \
+	frameworks/base/core/java/com/android/internal/view/IInputMethodManager.aidl \
+	frameworks/base/core/java/com/android/internal/view/IInputMethodSession.aidl \
+        frameworks/base/core/java/android/bluetooth/BluetoothLEServiceUuid.aidl  \
+	frameworks/base/graphics/java/android/graphics/Bitmap.aidl \
+	frameworks/base/graphics/java/android/graphics/Rect.aidl \
+	frameworks/base/graphics/java/android/graphics/Region.aidl \
+	frameworks/base/location/java/android/location/Criteria.aidl \
+	frameworks/base/location/java/android/location/Geofence.aidl \
+	frameworks/base/location/java/android/location/Location.aidl \
+	frameworks/base/location/java/android/location/LocationRequest.aidl \
+	frameworks/base/location/java/android/location/FusedBatchOptions.aidl \
+	frameworks/base/location/java/com/android/internal/location/ProviderProperties.aidl \
+	frameworks/base/location/java/com/android/internal/location/ProviderRequest.aidl \
+	frameworks/base/telephony/java/android/telephony/ServiceState.aidl \
+	frameworks/base/telephony/java/com/android/internal/telephony/IPhoneSubInfo.aidl \
+	frameworks/base/telephony/java/com/android/internal/telephony/ITelephony.aidl \
+	frameworks/base/wifi/java/android/net/wifi/BatchedScanSettings.aidl \
+	frameworks/base/wifi/java/android/net/wifi/BatchedScanResult.aidl \
 
 gen := $(TARGET_OUT_COMMON_INTERMEDIATES)/framework.aidl
 $(gen): PRIVATE_SRC_FILES := $(aidl_files)
