@@ -812,9 +812,12 @@ status_t massageManifest(Bundle* bundle, sp<XMLNode> root)
             bundle->setVersionName(strdup(String8(attr->string).string()));
         }
     }
+<<<<<<< HEAD
     
     sp<XMLNode> vers = root->getChildElement(String16(), String16("uses-sdk"));
+=======
 
+>>>>>>> d3e5027... Fix a variety of small publicly-reported bugs.
     if (bundle->getMinSdkVersion() != NULL
             || bundle->getTargetSdkVersion() != NULL
             || bundle->getMaxSdkVersion() != NULL) {
@@ -922,6 +925,7 @@ status_t massageManifest(Bundle* bundle, sp<XMLNode> root)
             }
         }
     }
+<<<<<<< HEAD
     
     // Generate split name if feature is present.
     const XMLNode::attribute_entry* attr = root->getAttribute(String16(), String16("featureName"));
@@ -934,6 +938,8 @@ status_t massageManifest(Bundle* bundle, sp<XMLNode> root)
             return err;
         }
     }
+=======
+>>>>>>> d3e5027... Fix a variety of small publicly-reported bugs.
 
     return NO_ERROR;
 }
@@ -1641,10 +1647,12 @@ status_t buildResources(Bundle* bundle, const sp<AaptAssets>& assets, sp<ApkBuil
             fclose(fp);
         }
 
+<<<<<<< HEAD
         if (finalResTable.getTableCount() == 0 || resFile == NULL) {
             fprintf(stderr, "No resource table was generated.\n");
             return UNKNOWN_ERROR;
         }
+=======
         // Read resources back in,
         finalResTable.add(resFile->getData(), resFile->getSize(), NULL);
 
@@ -1654,6 +1662,7 @@ status_t buildResources(Bundle* bundle, const sp<AaptAssets>& assets, sp<ApkBuil
               finalResTable.print();
         )
 #endif
+>>>>>>> d3e5027... Fix a variety of small publicly-reported bugs.
     }
 
     // Perform a basic validation of the manifest file.  This time we
@@ -2135,8 +2144,11 @@ static status_t writeLayoutClasses(
 
         NA = idents.size();
 
+<<<<<<< HEAD
+=======
         bool deprecated = false;
 
+>>>>>>> d3e5027... Fix a variety of small publicly-reported bugs.
         String16 comment = symbols->getComment(realClassName);
         AnnotationProcessor ann;
         fprintf(fp, "%s/** ", indentStr);
@@ -2215,10 +2227,15 @@ static status_t writeLayoutClasses(
         }
         fprintf(fp, "%s */\n", getIndentSpace(indent));
 
+<<<<<<< HEAD
+        ann.printAnnotations(fp, indentStr);
+        
+=======
         if (deprecated) {
             fprintf(fp, "%s@Deprecated\n", indentStr);
         }
 
+>>>>>>> d3e5027... Fix a variety of small publicly-reported bugs.
         fprintf(fp,
                 "%spublic static final int[] %s = {\n"
                 "%s",
@@ -2264,9 +2281,12 @@ static status_t writeLayoutClasses(
                 //    String8(attr16).string(), String8(name16).string(), typeSpecFlags);
                 const bool pub = (typeSpecFlags&ResTable_typeSpec::SPEC_PUBLIC) != 0;
 
+<<<<<<< HEAD
                 AnnotationProcessor ann;
+=======
                 bool deprecated = false;
 
+>>>>>>> d3e5027... Fix a variety of small publicly-reported bugs.
                 fprintf(fp, "%s/**\n", indentStr);
                 if (comment.size() > 0) {
                     String8 cmt(comment);
@@ -2647,7 +2667,11 @@ status_t writeResourceSymbols(Bundle* bundle, const sp<AaptAssets>& assets,
             "package %s;\n\n", package.string());
 
         status_t err = writeSymbolClass(fp, assets, includePrivate, symbols,
+<<<<<<< HEAD
+                className, 0, bundle->getNonConstantId(), emitCallback);
+=======
                 className, 0, bundle->getNonConstantId());
+>>>>>>> d3e5027... Fix a variety of small publicly-reported bugs.
         fclose(fp);
         if (err != NO_ERROR) {
             return err;

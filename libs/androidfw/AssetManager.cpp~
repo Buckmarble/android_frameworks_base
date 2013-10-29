@@ -429,7 +429,10 @@ void AssetManager::setLocaleLocked(const char* locale)
     }
 
     mLocale = strdupNew(locale);
+<<<<<<< HEAD
+=======
 
+>>>>>>> d3e5027... Fix a variety of small publicly-reported bugs.
     updateResourceParamsLocked();
 }
 

@@ -548,8 +548,13 @@ static status_t do_9patch(const char* imageName, image_info* image)
 
     int maxSizeXDivs = W * sizeof(int32_t);
     int maxSizeYDivs = H * sizeof(int32_t);
+<<<<<<< HEAD
+    int32_t* xDivs = image->xDivs = (int32_t*) malloc(maxSizeXDivs);
+    int32_t* yDivs = image->yDivs = (int32_t*) malloc(maxSizeYDivs);
+=======
     int32_t* xDivs = image->info9Patch.xDivs = (int32_t*) malloc(maxSizeXDivs);
     int32_t* yDivs = image->info9Patch.yDivs = (int32_t*) malloc(maxSizeYDivs);
+>>>>>>> d3e5027... Fix a variety of small publicly-reported bugs.
     uint8_t numXDivs = 0;
     uint8_t numYDivs = 0;
 
@@ -648,9 +653,12 @@ static status_t do_9patch(const char* imageName, image_info* image)
         }
     }
 
+<<<<<<< HEAD
     // use opacity of pixels to estimate the round rect outline
     get_outline(image);
 
+=======
+>>>>>>> d3e5027... Fix a variety of small publicly-reported bugs.
     // If padding is not yet specified, take values from size.
     if (image->info9Patch.paddingLeft < 0) {
         image->info9Patch.paddingLeft = xDivs[0];

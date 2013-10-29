@@ -168,7 +168,11 @@ status_t BootAnimation::initTexture(const Animation::Frame& frame)
     SkBitmap bitmap;
     SkMemoryStream  stream(frame.map->getDataPtr(), frame.map->getDataLength());
     SkImageDecoder* codec = SkImageDecoder::Factory(&stream);
+<<<<<<< HEAD
+    if (codec != NULL) {
+=======
     if (codec) {
+>>>>>>> d3e5027... Fix a variety of small publicly-reported bugs.
         codec->setDitherImage(false);
         codec->decode(&stream, &bitmap,
                 kN32_SkColorType,
@@ -282,8 +286,11 @@ status_t BootAnimation::readyToRun() {
     mFlingerSurfaceControl = control;
     mFlingerSurface = s;
 
+<<<<<<< HEAD
+=======
     mAndroidAnimation = true;
 
+>>>>>>> d3e5027... Fix a variety of small publicly-reported bugs.
     // If the device has encryption turned on or is in process
     // of being encrypted we show the encrypted boot animation.
     char decrypt[PROPERTY_VALUE_MAX];
