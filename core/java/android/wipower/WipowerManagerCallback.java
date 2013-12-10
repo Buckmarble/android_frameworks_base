@@ -31,7 +31,6 @@ package android.wipower;
 
 import android.wipower.WipowerManager.WipowerState;
 import android.wipower.WipowerManager.WipowerAlert;
-import android.wipower.WipowerManager.PowerApplyEvent;
 
 /**
  * Application level callback for Wipower manager APIs.
@@ -77,14 +76,4 @@ public interface WipowerManagerCallback
     * {@hide}
     */
     void onWipowerData(WipowerDynamicParam value);
-
-    /**
-    * Indicates the Wipower Alert
-    *
-    * @param {@link WipowerAlert}
-    *
-    * {@hide}
-    */
-    void onPowerApply(PowerApplyEvent alert);
-
 }

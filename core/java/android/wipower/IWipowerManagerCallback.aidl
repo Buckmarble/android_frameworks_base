@@ -41,6 +41,4 @@ interface IWipowerManagerCallback
     void onWipowerAlert(byte alert);
 
     void onWipowerData(in byte[] value);
-
-    void onPowerApply(byte value);
 }
