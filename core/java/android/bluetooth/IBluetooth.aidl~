@@ -95,12 +95,15 @@ interface IBluetooth
 
     boolean configHciSnoopLog(boolean enable);
 
+<<<<<<< HEAD
     boolean isMultiAdvertisementSupported();
     boolean isOffloadedFilteringSupported();
     boolean isOffloadedScanBatchingSupported();
     boolean isActivityAndEnergyReportingSupported();
     void getActivityEnergyInfoFromController();
     BluetoothActivityEnergyInfo reportActivityInfo();
+=======
     int setSocketOpt(int type, int port, int optionName, in byte [] optionVal, int optionLen);
     int getSocketOpt(int type, int port, int optionName, out byte [] optionVal);
+>>>>>>> 8fe6caf... KitKat AOSP initial commit
 }

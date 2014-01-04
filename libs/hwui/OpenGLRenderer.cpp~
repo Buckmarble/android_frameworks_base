@@ -953,16 +953,24 @@ void OpenGLRenderer::composeLayer(const Snapshot& removed, const Snapshot& resto
     } else if (!rect.isEmpty()) {
         dirtyLayer(rect.left, rect.top, rect.right, rect.bottom);
 
+<<<<<<< HEAD
+=======
 #ifdef QCOM_HARDWARE
+>>>>>>> 8fe6caf... KitKat AOSP initial commit
         save(0);
         // the layer contains screen buffer content that shouldn't be alpha modulated
         // (and any necessary alpha modulation was handled drawing into the layer)
         mSnapshot->alpha = 1.0f;
+<<<<<<< HEAD
+        composeLayerRect(layer, rect, true);
+        restore();
+=======
 #endif
         composeLayerRect(layer, rect, true);
 #ifdef QCOM_HARDWARE
         restore();
 #endif
+>>>>>>> 8fe6caf... KitKat AOSP initial commit
     }
 
     dirtyClip();

@@ -1,7 +1,11 @@
 /*
+<<<<<<< HEAD
+ * Copyright (C) 2009-2014 The Android Open Source Project
+=======
  * Copyright (C) 2013 The Linux Foundation. All rights reserved
  * Not a Contribution.
  * Copyright (C) 2009 The Android Open Source Project
+>>>>>>> 8fe6caf... KitKat AOSP initial commit
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -1353,8 +1357,13 @@ public final class BluetoothAdapter {
         } else if (profile == BluetoothProfile.MAP) {
             BluetoothMap map = new BluetoothMap(context, listener);
             return true;
+<<<<<<< HEAD
+        } else if (profile == BluetoothProfile.HEADSET_CLIENT) {
+            BluetoothHeadsetClient headsetClient = new BluetoothHeadsetClient(context, listener);
+=======
         } else if (profile == BluetoothProfile.HANDSFREE_CLIENT) {
             BluetoothHandsfreeClient hfpclient = new BluetoothHandsfreeClient(context, listener);
+>>>>>>> 8fe6caf... KitKat AOSP initial commit
             return true;
         } else {
             return false;
@@ -1424,9 +1433,15 @@ public final class BluetoothAdapter {
                 BluetoothMap map = (BluetoothMap)proxy;
                 map.close();
                 break;
+<<<<<<< HEAD
+            case BluetoothProfile.HEADSET_CLIENT:
+                BluetoothHeadsetClient headsetClient = (BluetoothHeadsetClient)proxy;
+                headsetClient.close();
+=======
             case BluetoothProfile.HANDSFREE_CLIENT:
                 BluetoothHandsfreeClient hfpclient = (BluetoothHandsfreeClient)proxy;
                 hfpclient.close();
+>>>>>>> 8fe6caf... KitKat AOSP initial commit
                 break;
         }
     }

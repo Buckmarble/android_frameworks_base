@@ -175,6 +175,7 @@ public class Camera {
     private boolean mOneShot;
     private boolean mWithBuffer;
     private boolean mFaceDetectionRunning = false;
+<<<<<<< HEAD
     private final Object mAutoFocusCallbackLock = new Object();
 
     private static final int NO_ERROR = 0;
@@ -185,11 +186,13 @@ public class Camera {
     private static final int ENOSYS = -38;
     private static final int EUSERS = -87;
     private static final int EOPNOTSUPP = -95;
+=======
     private Object mAutoFocusCallbackLock = new Object();
     /* ### QC ADD-ONS: START */
     private CameraDataCallback mCameraDataCallback;
     private CameraMetaDataCallback mCameraMetaDataCallback;
     /* ### QC ADD-ONS: END */
+>>>>>>> 8fe6caf... KitKat AOSP initial commit
 
     /**
      * Broadcast Action:  A new picture is taken by the camera, and the entry of

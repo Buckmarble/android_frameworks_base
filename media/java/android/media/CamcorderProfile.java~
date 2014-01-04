@@ -90,6 +90,16 @@ public class CamcorderProfile
      */
     public static final int QUALITY_QVGA = 7;
 
+<<<<<<< HEAD
+    /**
+     * Quality level corresponding to the 2160p (3840x2160) resolution.
+     */
+    public static final int QUALITY_2160P = 8;
+
+    // Start and end of quality list
+    private static final int QUALITY_LIST_START = QUALITY_LOW;
+    private static final int QUALITY_LIST_END = QUALITY_2160P;
+=======
     /** @hide
      * Quality level corresponding to the FWVGA resolution.
      */
@@ -123,6 +133,7 @@ public class CamcorderProfile
     // Start and end of quality list
     private static final int QUALITY_LIST_START = QUALITY_LOW;
     private static final int QUALITY_LIST_END = QUALITY_4kDCI;
+>>>>>>> 8fe6caf... KitKat AOSP initial commit
 
     /**
      * Time lapse quality level corresponding to the lowest available resolution.
@@ -164,6 +175,7 @@ public class CamcorderProfile
      */
     public static final int QUALITY_TIME_LAPSE_QVGA = 1007;
 
+<<<<<<< HEAD
     /**
      * Time lapse quality level corresponding to the 2160p (3840 x 2160) resolution.
      */
@@ -211,6 +223,7 @@ public class CamcorderProfile
     // Start and end of high speed quality list
     private static final int QUALITY_HIGH_SPEED_LIST_START = QUALITY_HIGH_SPEED_LOW;
     private static final int QUALITY_HIGH_SPEED_LIST_END = QUALITY_HIGH_SPEED_2160P;
+=======
     /** @hide
      * Time lapse quality level corresponding to the FWVGA (864 x 480) resolution.
      */
@@ -234,6 +247,7 @@ public class CamcorderProfile
     // Start and end of timelapse quality list
     private static final int QUALITY_TIME_LAPSE_LIST_START = QUALITY_TIME_LAPSE_LOW;
     private static final int QUALITY_TIME_LAPSE_LIST_END = QUALITY_TIME_LAPSE_WQVGA;
+>>>>>>> 8fe6caf... KitKat AOSP initial commit
 
     /**
      * Default recording duration in seconds before the session is terminated.

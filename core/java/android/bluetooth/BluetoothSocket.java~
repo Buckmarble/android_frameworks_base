@@ -522,8 +522,12 @@ public final class BluetoothSocket implements Closeable {
                     mSocket.close();
                     mSocket = null;
                 }
+<<<<<<< HEAD
+                if (mPfd != null) {
+=======
                 if(mPfd != null) {
                     mPfd.detachFd();
+>>>>>>> 8fe6caf... KitKat AOSP initial commit
                     mPfd.close();
                     mPfd = null;
                 }

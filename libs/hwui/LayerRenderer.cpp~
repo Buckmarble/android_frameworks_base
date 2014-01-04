@@ -336,8 +336,15 @@ void LayerRenderer::destroyLayerDeferred(Layer* layer) {
     }
 }
 
+<<<<<<< HEAD
+void LayerRenderer::flushLayer(RenderState& renderState, Layer* layer) {
+#ifdef GL_EXT_discard_framebuffer
+    if (!layer) return;
+
+=======
 void LayerRenderer::flushLayer(Layer* layer) {
 #if defined(GL_EXT_discard_framebuffer) && !defined(EXYNOS4_ENHANCEMENTS)
+>>>>>>> 8fe6caf... KitKat AOSP initial commit
     GLuint fbo = layer->getFbo();
     if (fbo) {
         // If possible, discard any enqueud operations on deferred

@@ -724,6 +724,9 @@ static void android_hardware_Camera_setHasPreviewCallback(JNIEnv *env, jobject t
     context->setCallbackMode(env, installed, manualBuffer);
 }
 
+<<<<<<< HEAD
+static void android_hardware_Camera_addCallbackBuffer(JNIEnv *env, jobject thiz, jbyteArray bytes, jint msgType) {
+=======
 static void android_hardware_Camera_setMetadataCb(JNIEnv *env, jobject thiz, jboolean mode)
 {
     ALOGV("setMetadataCb: mode:%d", (int)mode);
@@ -743,6 +746,7 @@ static void android_hardware_Camera_setMetadataCb(JNIEnv *env, jobject thiz, jbo
 }
 
 static void android_hardware_Camera_addCallbackBuffer(JNIEnv *env, jobject thiz, jbyteArray bytes, int msgType) {
+>>>>>>> 8fe6caf... KitKat AOSP initial commit
     ALOGV("addCallbackBuffer: 0x%x", msgType);
 
     JNICameraContext* context = reinterpret_cast<JNICameraContext*>(env->GetLongField(thiz, fields.context));

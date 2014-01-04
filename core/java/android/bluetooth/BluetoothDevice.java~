@@ -311,7 +311,11 @@ public final class BluetoothDevice implements Parcelable {
     /** @hide */
     @SdkConstant(SdkConstantType.BROADCAST_INTENT_ACTION)
     public static final String ACTION_MAS_INSTANCE =
+<<<<<<< HEAD
+            "android.bluetooth.device.action.MAS_INSTANCE";
+=======
             "org.codeaurora.bluetooth.device.action.MAS_INSTANCE";
+>>>>>>> 8fe6caf... KitKat AOSP initial commit
 
     /**
      * Broadcast Action: Indicates a failure to retrieve the name of a remote
@@ -979,6 +983,8 @@ public final class BluetoothDevice implements Parcelable {
     }
 
     /**
+<<<<<<< HEAD
+=======
      * Get trust state of a remote device.
      * <p>Requires {@link android.Manifest.permission#BLUETOOTH}.
      * @return true/false
@@ -1019,6 +1025,7 @@ public final class BluetoothDevice implements Parcelable {
     }
 
     /**
+>>>>>>> 8fe6caf... KitKat AOSP initial commit
      * Returns the supported features (UUIDs) of the remote device.
      *
      * <p>This method does not start a service discovery procedure to retrieve the UUIDs
