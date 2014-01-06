@@ -548,12 +548,15 @@ public class SignalStrength implements Parcelable {
         int dBm;
 
         if(isGsm()) {
+<<<<<<< HEAD
+            dBm = getLteDbm();
+            if (dBm == INVALID) {
+=======
             boolean oldRil = needsOldRilFeature("signalstrength");
             boolean lteChecks = (getLteRsrp() == INVALID && getLteRsrq() == INVALID && getLteRssnr() == INVALID && getLteSignalStrength() == 99);
             if ((getLteLevel() == SIGNAL_STRENGTH_NONE_OR_UNKNOWN && getGsmAsuLevel() != 99 && lteChecks) || oldRil) {
+>>>>>>> 7070b13... Adjustments made for proper VZW carrier functionality
                 dBm = getGsmDbm();
-            } else {
-                dBm = getLteDbm();
             }
         } else {
             int cdmaDbm = getCdmaDbm();

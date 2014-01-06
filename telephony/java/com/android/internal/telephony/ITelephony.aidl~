@@ -48,7 +48,9 @@ interface ITelephony {
     void call(String callingPackage, String number);
 
     /**
+<<<<<<< HEAD
      * End call if there is a call in progress, otherwise does nothing.
+=======
      * Toggle between 3G and LTE (NT_MODE_CDMA, NT_MODE_GLOBAL)
      * @param boolean to turn on and off LTE
      */
@@ -71,6 +73,7 @@ interface ITelephony {
      * @param showDialpad if true, make the dialpad visible initially,
      *                    otherwise hide the dialpad initially.
      * @return true if the call screen was shown.
+>>>>>>> 7070b13... Adjustments made for proper VZW carrier functionality
      *
      * @return whether it hung up
      */
@@ -509,9 +512,12 @@ interface ITelephony {
      * Sets minimum time in milli-seconds between onCellInfoChanged
      */
     void setCellInfoListRate(int rateInMillis);
+<<<<<<< HEAD
+=======
 
     int getLteOnGsmMode();
 }
+>>>>>>> 7070b13... Adjustments made for proper VZW carrier functionality
 
     /**
      * get default sim

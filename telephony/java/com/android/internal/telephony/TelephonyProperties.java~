@@ -193,6 +193,7 @@ public interface TelephonyProperties
      */
     static final String PROPERTY_IGNORE_NITZ = "telephony.test.ignore.nitz";
 
+<<<<<<< HEAD
      /**
      * Property to set multi sim feature.
      * Type:  String(dsds, dsda)
@@ -214,6 +215,7 @@ public interface TelephonyProperties
      * Set to the sim count.
      */
     static final String PROPERTY_SIM_COUNT = "ro.telephony.sim.count";
+=======
     /**
      * Set to true to indicates support for simultaneous voice and EvDo.
      */
@@ -224,4 +226,5 @@ public interface TelephonyProperties
      * Type: boolean ( true = alpha display enabled, false = alpha display disabled)
      */
     static final String PROPERTY_ALPHA_USRCNF = "persist.atel.noalpha.usrcnf";
+>>>>>>> 7070b13... Adjustments made for proper VZW carrier functionality
 }
