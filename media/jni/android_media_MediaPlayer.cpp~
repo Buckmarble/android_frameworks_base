@@ -849,6 +849,8 @@ android_media_MediaPlayer_setNextMediaPlayer(JNIEnv *env, jobject thiz, jobject 
     ;
 }
 
+<<<<<<< HEAD
+=======
 static jboolean
 android_media_MediaPlayer_suspend(JNIEnv *env, jobject thiz)
 {
@@ -924,6 +926,7 @@ android_media_MediaPlayer_updateProxyConfig(
     }
 }
 
+>>>>>>> 0c2a08e... Add 2 APIs (suspend/resume) in MediaPlayer
 // ----------------------------------------------------------------------------
 
 static JNINativeMethod gMethods[] = {
@@ -968,9 +971,12 @@ static JNINativeMethod gMethods[] = {
     {"native_pullBatteryData", "(Landroid/os/Parcel;)I",        (void *)android_media_MediaPlayer_pullBatteryData},
     {"native_setRetransmitEndpoint", "(Ljava/lang/String;I)I",  (void *)android_media_MediaPlayer_setRetransmitEndpoint},
     {"setNextMediaPlayer",  "(Landroid/media/MediaPlayer;)V",   (void *)android_media_MediaPlayer_setNextMediaPlayer},
+<<<<<<< HEAD
+=======
     {"updateProxyConfig", "(Landroid/net/ProxyProperties;)V", (void *)android_media_MediaPlayer_updateProxyConfig},
     {"_suspend",             "()Z",                             (void *)android_media_MediaPlayer_suspend},
     {"_resume",              "()Z",                             (void *)android_media_MediaPlayer_resume},
+>>>>>>> 0c2a08e... Add 2 APIs (suspend/resume) in MediaPlayer
 };
 
 // This function only registers the native methods

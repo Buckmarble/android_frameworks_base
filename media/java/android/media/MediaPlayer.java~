@@ -3067,6 +3067,8 @@ public class MediaPlayer implements SubtitleController.Listener
                 mode == VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING);
     }
 
+<<<<<<< HEAD
+=======
     /** @hide
     */
     public boolean suspend() {
@@ -3137,6 +3139,7 @@ public class MediaPlayer implements SubtitleController.Listener
 
     private native void updateProxyConfig(ProxyProperties props);
 
+>>>>>>> 0c2a08e... Add 2 APIs (suspend/resume) in MediaPlayer
     /** @hide */
     static class TimeProvider implements MediaPlayer.OnSeekCompleteListener,
             MediaTimeProvider {
