@@ -264,6 +264,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
 
         final ContentResolver cr = mContext.getContentResolver();
         mItems = new ArrayList<Action>();
+<<<<<<< HEAD
         String[] defaultActions = mContext.getResources().getStringArray(
                 com.android.internal.R.array.config_globalActionsList);
 
@@ -282,6 +283,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
                 if (Settings.Global.getInt(mContext.getContentResolver(),
                         Settings.Global.BUGREPORT_IN_POWER_MENU, 0) != 0 && isCurrentUserOwner()) {
                     mItems.add(getBugReportAction());
+=======
 
         // first: power off
         mItems.add(
@@ -317,6 +319,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
                 public boolean onLongPress() {
                     mWindowManagerFuncs.rebootSafeMode(true);
                     return true;
+>>>>>>> 39f0c0c... Add advanced reboot options
                 }
             } else if (GLOBAL_ACTION_KEY_SILENT.equals(actionKey)) {
                 if (mShowSilentToggle) {
@@ -326,6 +329,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
                 if (SystemProperties.getBoolean("fw.power_user_switcher", false)) {
                     addUsersToMenu(mItems);
                 }
+<<<<<<< HEAD
             } else if (GLOBAL_ACTION_KEY_SETTINGS.equals(actionKey)) {
                 mItems.add(getSettingsAction());
             } else if (GLOBAL_ACTION_KEY_LOCKDOWN.equals(actionKey)) {
@@ -335,6 +339,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
             }
             // Add here so we don't add more than one.
             addedKeys.add(actionKey);
+=======
             });
         }
 
@@ -398,6 +403,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
         // one more thing: optionally add a list of users to switch to
         if (SystemProperties.getBoolean("fw.power_user_switcher", false)) {
             addUsersToMenu(mItems);
+>>>>>>> 39f0c0c... Add advanced reboot options
         }
 
         mAdapter = new MyAdapter();

@@ -4787,6 +4787,7 @@ public final class Settings {
         public static final String PAYMENT_SERVICE_SEARCH_URI = "payment_service_search_uri";
 
         /**
+<<<<<<< HEAD
          * If enabled, apps should try to skip any introductory hints on first launch. This might
          * apply to users that are already familiar with the environment or temporary users.
          * <p>
@@ -4847,11 +4848,12 @@ public final class Settings {
          * @hide
          */
         public static final String SLEEP_TIMEOUT = "sleep_timeout";
-	/**
+=======
          * Whether to include options in power menu for rebooting into recovery or bootloader
          * @hide
          */
         public static final String ADVANCED_REBOOT = "advanced_reboot";
+>>>>>>> 39f0c0c... Add advanced reboot options
 
         /**
          * This are the settings to be backed up.
@@ -4903,6 +4905,7 @@ public final class Settings {
             MOUNT_UMS_PROMPT,
             MOUNT_UMS_NOTIFY_ENABLED,
             UI_NIGHT_MODE,
+<<<<<<< HEAD
             SLEEP_TIMEOUT
         };
 
@@ -4924,7 +4927,9 @@ public final class Settings {
             SELECTED_INPUT_METHOD_SUBTYPE,
             SELECTED_SPELL_CHECKER,
             SELECTED_SPELL_CHECKER_SUBTYPE
+=======
             ADVANCED_REBOOT
+>>>>>>> 39f0c0c... Add advanced reboot options
         };
 
         /**
