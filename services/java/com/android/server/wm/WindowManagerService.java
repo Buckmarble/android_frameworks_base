@@ -5196,6 +5196,11 @@ public class WindowManagerService extends IWindowManager.Stub
         mPolicy.setTouchExplorationEnabled(enabled);
     }
 
+    // Called by window manager policy.  Not exposed externally.
+    public void reboot() {
+        ShutdownThread.reboot(mContext, null, true);
+    }
+
     public void setCurrentUser(final int newUserId) {
         synchronized (mWindowMap) {
             int oldUserId = mCurrentUserId;
