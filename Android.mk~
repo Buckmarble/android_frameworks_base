@@ -110,11 +110,7 @@ LOCAL_SRC_FILES += \
 	core/java/android/bluetooth/IBluetoothPbap.aidl \
 	core/java/android/bluetooth/IBluetoothMap.aidl \
 	core/java/android/bluetooth/IBluetoothStateChangeCallback.aidl \
-<<<<<<< HEAD
-	core/java/android/bluetooth/IBluetoothHeadsetClient.aidl \
-=======
 	core/java/android/bluetooth/IBluetoothHandsfreeClient.aidl \
->>>>>>> 8fe6caf... KitKat AOSP initial commit
 	core/java/android/bluetooth/IBluetoothGatt.aidl \
 	core/java/android/bluetooth/IBluetoothGattCallback.aidl \
 	core/java/android/bluetooth/IBluetoothGattServerCallback.aidl \
@@ -305,8 +301,13 @@ LOCAL_SRC_FILES += \
 	location/java/android/location/IFusedProvider.aidl \
 	location/java/android/location/IGeocodeProvider.aidl \
 	location/java/android/location/IGeofenceProvider.aidl \
+<<<<<<< HEAD
 	location/java/android/location/IGpsMeasurementsListener.aidl \
 	location/java/android/location/IGpsNavigationMessageListener.aidl \
+=======
+        location/java/android/location/IGeoFencer.aidl \
+        location/java/android/location/IGeoFenceListener.aidl \
+>>>>>>> 03006bf... Added Geofencing capability to base
 	location/java/android/location/IGpsStatusListener.aidl \
 	location/java/android/location/IGpsStatusProvider.aidl \
 	location/java/android/location/ILocationListener.aidl \
