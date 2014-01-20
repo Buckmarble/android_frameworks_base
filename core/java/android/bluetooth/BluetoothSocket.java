@@ -483,13 +483,19 @@ public final class BluetoothSocket implements Closeable {
     }
 
     /*package*/ int read(byte[] b, int offset, int length) throws IOException {
-        if (mSocketIS == null) throw new IOException("read is called on null InputStream");
-        if (VDBG) Log.d(TAG, "read in:  " + mSocketIS + " len: " + length);
-        int ret = mSocketIS.read(b, offset, length);
-        if(ret < 0)
-            throw new IOException("bt socket closed, read return: " + ret);
-        if (VDBG) Log.d(TAG, "read out:  " + mSocketIS + " ret: " + ret);
-        return ret;
+            int ret = -1;
+            if (VDBG) Log.d(TAG, "read in:  " + mSocketIS + " len: " + length);
+            if(mSocketIS != null) {
+                try {
+                    ret = mSocketIS.read(b, offset, length);
+                } catch (IOException e) {
+                    Log.e(TAG, "IOException while reading the InputStream");
+                }
+            }
+            if(ret < 0)
+                throw new IOException("bt socket closed, read return: " + ret);
+            if (VDBG) Log.d(TAG, "read out:  " + mSocketIS + " ret: " + ret);
+            return ret;
     }
 
     /*package*/ int write(byte[] b, int offset, int length) throws IOException {
