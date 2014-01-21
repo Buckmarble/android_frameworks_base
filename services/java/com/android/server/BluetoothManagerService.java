@@ -55,6 +55,7 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
     private static final String SECURE_SETTINGS_BLUETOOTH_ADDR_VALID="bluetooth_addr_valid";
     private static final String SECURE_SETTINGS_BLUETOOTH_ADDRESS="bluetooth_address";
     private static final String SECURE_SETTINGS_BLUETOOTH_NAME="bluetooth_name";
+    private static final String SYSTEMUI_PACKAGE_NAME="com.android.systemui";
     private static final int TIMEOUT_BIND_MS = 3000; //Maximum msec to wait for a bind
     private static final int TIMEOUT_SAVE_MS = 500; //Maximum msec to wait for a save
     //Maximum msec to wait for service restart
@@ -121,6 +122,7 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
     private int mState;
     private final BluetoothHandler mHandler;
     private int mErrorRecoveryRetryCounter;
+    private boolean mIsBluetoothServiceConnected = false;
 
     private void registerForAirplaneMode(IntentFilter filter) {
         final ContentResolver resolver = mContext.getContentResolver();
@@ -421,6 +423,12 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
             (!checkIfCallerIsForegroundUser())) {
             Log.w(TAG,"disable(): not allowed for non-active and non system user");
             return false;
+        }
+
+        if (!mIsBluetoothServiceConnected || mState != BluetoothAdapter.STATE_ON)
+        {
+            Log.d(TAG, "Disable(): Service is not Connected Or Bluetooth is not enabled");
+            return true;
         }
 
         if (DBG) {
@@ -783,6 +791,8 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
                 {
                     if (DBG) Log.d(TAG,"MESSAGE_BLUETOOTH_SERVICE_CONNECTED: " + msg.arg1);
 
+                    mIsBluetoothServiceConnected = true;
+
                     IBinder service = (IBinder) msg.obj;
                     synchronized(mConnection) {
                         if (msg.arg1 == SERVICE_IBLUETOOTHGATT) {
@@ -881,6 +891,9 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
                 case MESSAGE_BLUETOOTH_SERVICE_DISCONNECTED:
                 {
                     Log.e(TAG, "MESSAGE_BLUETOOTH_SERVICE_DISCONNECTED: " + msg.arg1);
+
+                    mIsBluetoothServiceConnected = false;
+
                     synchronized(mConnection) {
                         if (msg.arg1 == SERVICE_IBLUETOOTH) {
                             // if service is unbinded already, do nothing and return
@@ -896,7 +909,8 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
                     }
 
                     if (mEnable) {
-                        mEnable = false;
+                        if (!isBluetoothPersistedStateOn())
+                            mEnable = false;
                         // Send a Bluetooth Restart message
                         Message restartMsg = mHandler.obtainMessage(
                             MESSAGE_RESTART_BLUETOOTH_SERVICE);
@@ -1105,11 +1119,20 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
         int callingUid = Binder.getCallingUid();
         long callingIdentity = Binder.clearCallingIdentity();
         int callingAppId = UserHandle.getAppId(callingUid);
+        String[] packages = mContext.getPackageManager().getPackagesForUid(callingUid);
+        boolean isSystemUi = false;
+        for (String p : packages) {
+            if (SYSTEMUI_PACKAGE_NAME.equals(p)) {
+                isSystemUi = true;
+                break;
+            }
+        }
         boolean valid = false;
         try {
             foregroundUser = ActivityManager.getCurrentUser();
-            valid = (callingUser == foregroundUser) ||
-                    callingAppId == Process.NFC_UID;
+            valid = (callingUser == foregroundUser)
+                    || callingAppId == Process.NFC_UID
+                    || isSystemUi;
             if (DBG) {
                 Log.d(TAG, "checkIfCallerIsForegroundUser: valid=" + valid
                     + " callingUser=" + callingUser
