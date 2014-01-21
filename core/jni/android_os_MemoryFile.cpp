@@ -1,18 +1,18 @@
 /*
- * Copyright (C) 2008 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+* Copyright (C) 2008 The Android Open Source Project
+*
+* Licensed under the Apache License, Version 2.0 (the "License");
+* you may not use this file except in compliance with the License.
+* You may obtain a copy of the License at
+*
+* http://www.apache.org/licenses/LICENSE-2.0
+*
+* Unless required by applicable law or agreed to in writing, software
+* distributed under the License is distributed on an "AS IS" BASIS,
+* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+* See the License for the specific language governing permissions and
+* limitations under the License.
+*/
 
 #define LOG_TAG "MemoryFile"
 #include <utils/Log.h>
@@ -47,15 +47,16 @@ static jint android_os_MemoryFile_mmap(JNIEnv* env, jobject clazz, jobject fileD
         jint length, jint prot)
 {
     int fd = jniGetFDFromFileDescriptor(env, fileDescriptor);
-    jint result = (jint)mmap(NULL, length, prot, MAP_SHARED, fd, 0);
-    if (!result)
+    void* result = mmap(NULL, length, prot, MAP_SHARED, fd, 0);
+    if (result == MAP_FAILED) {
         jniThrowException(env, "java/io/IOException", "mmap failed");
-    return result;
+    }
+    return reinterpret_cast<jlong>(result);
 }
 
 static void android_os_MemoryFile_munmap(JNIEnv* env, jobject clazz, jint addr, jint length)
 {
-    int result = munmap((void *)addr, length);
+    int result = munmap(reinterpret_cast<void *>(addr), length);
     if (result < 0)
         jniThrowException(env, "java/io/IOException", "munmap failed");
 }
@@ -137,13 +138,13 @@ static jint android_os_MemoryFile_get_size(JNIEnv* env, jobject clazz,
 }
 
 static const JNINativeMethod methods[] = {
-    {"native_open",  "(Ljava/lang/String;I)Ljava/io/FileDescriptor;", (void*)android_os_MemoryFile_open},
-    {"native_mmap",  "(Ljava/io/FileDescriptor;II)I", (void*)android_os_MemoryFile_mmap},
+    {"native_open", "(Ljava/lang/String;I)Ljava/io/FileDescriptor;", (void*)android_os_MemoryFile_open},
+    {"native_mmap", "(Ljava/io/FileDescriptor;II)I", (void*)android_os_MemoryFile_mmap},
     {"native_munmap", "(II)V", (void*)android_os_MemoryFile_munmap},
     {"native_close", "(Ljava/io/FileDescriptor;)V", (void*)android_os_MemoryFile_close},
-    {"native_read",  "(Ljava/io/FileDescriptor;I[BIIIZ)I", (void*)android_os_MemoryFile_read},
+    {"native_read", "(Ljava/io/FileDescriptor;I[BIIIZ)I", (void*)android_os_MemoryFile_read},
     {"native_write", "(Ljava/io/FileDescriptor;I[BIIIZ)V", (void*)android_os_MemoryFile_write},
-    {"native_pin",   "(Ljava/io/FileDescriptor;Z)V", (void*)android_os_MemoryFile_pin},
+    {"native_pin", "(Ljava/io/FileDescriptor;Z)V", (void*)android_os_MemoryFile_pin},
     {"native_get_size", "(Ljava/io/FileDescriptor;)I",
             (void*)android_os_MemoryFile_get_size}
 };
