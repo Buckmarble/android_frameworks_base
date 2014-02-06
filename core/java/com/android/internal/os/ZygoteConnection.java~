@@ -219,6 +219,8 @@ class ZygoteConnection {
                 fdsToClose[0] = fd.getInt$();
             }
 
+<<<<<<< HEAD
+=======
             /**
              * In order to avoid leaking descriptors to the Zygote child,
              * the native code must close the two Zygote socket descriptors
@@ -239,6 +241,7 @@ class ZygoteConnection {
                 fdsToClose[0] = fd.getInt$();
             }
 
+>>>>>>> 90fac01... Finish fixing Zygote descriptor leakage problem
             fd = ZygoteInit.getServerSocketFileDescriptor();
 
             if (fd != null) {
@@ -249,10 +252,14 @@ class ZygoteConnection {
 
             pid = Zygote.forkAndSpecialize(parsedArgs.uid, parsedArgs.gid, parsedArgs.gids,
                     parsedArgs.debugFlags, rlimits, parsedArgs.mountExternal, parsedArgs.seInfo,
+<<<<<<< HEAD
                     parsedArgs.niceName, fdsToClose, parsedArgs.instructionSet,
                     parsedArgs.appDataDir);
+=======
+                    parsedArgs.niceName, fdsToClose);
         } catch (IOException ex) {
             logAndPrintError(newStderr, "Exception creating pipe", ex);
+>>>>>>> 90fac01... Finish fixing Zygote descriptor leakage problem
         } catch (ErrnoException ex) {
             logAndPrintError(newStderr, "Exception creating pipe", ex);
         } catch (IllegalArgumentException ex) {
